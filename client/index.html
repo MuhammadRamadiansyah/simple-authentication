@@ -30,8 +30,8 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                   </form>
-                  <button class="btn btn-outline-success my-2 my-sm-0" onclick="login()" type="login" data-toggle="modal" data-target="#exampleModal">login</button>
-                  <button class="btn btn-outline-success my-2 my-sm-0" onclick="login()" type="login" data-toggle="modal" data-target="#exampleModalCenter">register</button>
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="login" data-toggle="modal" data-target="#exampleModal">login</button>
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="login" data-toggle="modal" data-target="#exampleModalCenter">register</button>
                 </div>
               </nav>
                   
@@ -51,27 +51,26 @@
                                 <form>
                                         <div class="form-group">
                                           <label for="exampleInputEmail1">Email address</label>
-                                          <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+                                          <input type="text" id="emailregister" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
                                           <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                         </div>
                                         <div class="form-group">
                                           <label for="exampleInputPassword1">Password</label>
-                                          <input type="password" class="form-control"  placeholder="Password">
+                                          <input type="password" id="passwordregister" class="form-control"  placeholder="Password">
                                         </div>
                                         <div class="form-group">
-                                                <label for="exampleInputPassword1">Password</label>
-                                                <input type="password" class="form-control"  placeholder="Password">
+                                                <label for="exampleInputPassword1">Confirm Password</label>
+                                                <input type="password" id="confirmregister" name="confirm_password" class="form-control"  placeholder="Confirm Password">
                                               </div>
                                         <div class="form-check">
                                           <input type="checkbox" class="form-check-input">
                                           <label class="form-check-label" for="exampleCheck1">Check me out</label>
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
                                       </form>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
+                            <button type="button" class="btn btn-primary" onclick="register()">Submit</button>
                         </div>
                         </div>
                     </div>
@@ -123,8 +122,19 @@
             console.log('tes')
         }
         function register(){
+        
+            let email = $('#emailregister').val()
+            let password = $('#passwordregister').val()
+            let confirm_password = $('#confirmregister').val()
+            axios.post('http://localhost:3000/users/signup',{email:email,password:password,confirm_password:confirm_password},{})
+                 .then(response=>{
+                     console.log('bisa')
+                 })
+                 .catch(err=>{
 
+                 })
         }
+            
     </script>
 </body>
 </html>

@@ -4,7 +4,7 @@
   "description": "Pada ujian mid phase ini kita akan menguji sejauh mana hasil dari pembelajaran yang telah kita lakukan selama kurang lebih 2 minggu ini. Kamu akan diminta membuat **login dan register**.  pada sebuah web yang tentunya berfungsi untuk **login dan register** saja, seperti user bisa melakukan register, lalu setelah itu user bisa melakukan login.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon server/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +18,11 @@
   "homepage": "https://github.com/MuhammadRamadiansyah/simple-authentication#readme",
   "dependencies": {
     "bcrypt": "^2.0.0",
+    "cors": "^2.8.4",
+    "dotenv": "^5.0.1",
     "express": "^4.16.3",
-    "jsonwebtoken": "^8.2.1"
+    "jsonwebtoken": "^8.2.1",
+    "mongoose": "^5.0.14",
+    "nodemon": "^1.17.3"
   }
 }
